@@ -1,0 +1,72 @@
+/* Thème sombre (par défaut) */
+body {
+  background-color: #121212;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Thème clair */
+body.light-mode {
+  background-color: #f9f9f9;
+  color: black;
+}
+
+/* Thème clair */
+body.light-mode {
+  background-color: #f5f5f5;
+  color: black;
+}
+
+body.light-mode * {
+  color: black;
+  background-color: transparent;
+}
+
+/* Navbar */
+body.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .navbar ul li a {
+  color: black !important;
+}
+
+/* Boutons */
+body.light-mode .btn-neuro {
+  background: #eaeaea;
+  color: black;
+  box-shadow: 5px 5px 10px #ccc, -5px -5px 10px #fff;
+}
+
+/* Popups */
+body.light-mode .popup {
+  background: #ffffff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .popup button {
+  background: #111;
+  color: white;
+}
+
+
+/* Héritage des couleurs */
+body *,
+body a,
+body i {
+  color: inherit;
+}
+
+/* 🎯 Style des champs input en dark mode */
+body:not(.light-mode) input {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #444;
+  padding: 0.6em;
+  border-radius: 5px;
+}
+
+body:not(.light-mode) input::placeholder {
+  color: #aaa;
+}

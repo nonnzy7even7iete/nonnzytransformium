@@ -1,0 +1,131 @@
+/* Glassmorphisme dark stylé */
+body {
+       margin: 0;
+       font-family: 'Segoe UI', sans-serif;
+       background: radial-gradient(circle at center, #1a1a1a, #0f0f0f);
+       color: #fff;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       min-height: 100vh;
+       overflow: hidden;
+     }
+     
+     .user-profil-container {
+       display: flex;
+       flex-wrap: wrap;
+       max-width: 900px;
+       width: 90%;
+       background: rgba(255, 255, 255, 0.05);
+       border-radius: 20px;
+       backdrop-filter: blur(12px);
+       padding: 2rem;
+       box-shadow: 0 0 40px rgba(0,0,0,0.3);
+       gap: 2rem;
+     }
+     
+     .profil-left {
+       flex: 1 1 250px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 1rem;
+     }
+     
+     .user-img {
+       width: 180px;
+       height: 180px;
+       border-radius: 50%;
+       object-fit: cover;
+       border: 3px solid #777;
+     }
+     
+     input[type="file"] {
+       color: #ccc;
+       background: none;
+       border: none;
+     }
+     
+     button {
+       background: rgba(255,255,255,0.08);
+       border: 1px solid #444;
+       padding: 0.6rem 1.2rem;
+       border-radius: 10px;
+       color: #fff;
+       cursor: pointer;
+       transition: all 0.3s ease;
+     }
+     
+     button:hover {
+       background: rgba(255,255,255,0.2);
+     }
+     
+     .profil-right {
+       flex: 2;
+       display: flex;
+       flex-direction: column;
+       gap: 1.5rem;
+       justify-content: center;
+     }
+     
+     .username-box {
+       display: flex;
+       align-items: center;
+       gap: 0.6rem;
+     }
+     
+     .username-box input {
+       flex: 1;
+       padding: 0.6rem;
+       border: none;
+       border-radius: 10px;
+       background: rgba(255,255,255,0.08);
+       color: #fff;
+       outline: none;
+     }
+     
+     .logout-btn {
+       align-self: flex-start;
+       background: #aa0000;
+       border-color: #880000;
+     }
+     
+     /* Vue plein écran image */
+     .image-popup {
+       position: fixed;
+       inset: 0;
+       background: rgba(0,0,0,0.85);
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       z-index: 999;
+       flex-direction: column;
+     }
+     
+     .image-popup img {
+       width: 60%;
+       max-width: 400px;
+       border-radius: 20px;
+       border: 4px solid #fff;
+     }
+     
+     .image-popup button {
+       margin-top: 1rem;
+       background: #111;
+     }
+     
+     .hidden {
+       display: none;
+     }
+     
+     @media (max-width: 768px) {
+       .user-profil-container {
+         flex-direction: column;
+         align-items: center;
+       }
+     
+       .image-popup img {
+         width: 90%;
+       }
+     }
+     

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil Utilisateur</title>
+  <link rel="stylesheet" href="./css/userProfil.css" />
+  <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+</head>
+<body>
+
+  <div class="user-profil-container">
+    <!-- 📸 Image de profil -->
+    <div class="profil-left">
+      <img src="./assets/default-profile.jpg" alt="Photo de profil" class="user-img" id="profile-img"/>
+      <button id="show-full-img"><i class="fas fa-eye"></i> Voir la photo</button>
+      <input type="file" id="upload-photo" accept="image/*"/>
+    </div>
+
+    <!-- ✏️ Infos utilisateur -->
+    <div class="profil-right">
+      <div class="username-box">
+        <i class="fas fa-user"></i>
+        <input type="text" id="username" placeholder="Votre pseudo..." />
+        <button id="edit-username"><i class="fas fa-edit"></i> Modifier le pseudo</button>
+      </div>
+
+      <button id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Se déconnecter</button>
+    </div>
+  </div>
+
+  <!-- 🖼️ Vue image en plein écran -->
+  <div class="image-popup hidden" id="image-popup">
+    <img id="full-image" src="./assets/default-profile.jpg" alt="Profil complet" />
+    <button id="vc -popup"><i class="fas fa-times-circle"></i></button>
+  </div>
+
+  <script src="./js/userProfil.js"></script>
+</body>
+</html>
+ 

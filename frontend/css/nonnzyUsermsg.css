@@ -1,0 +1,16 @@
+.form-message {
+       margin-top: 0.8rem;
+       font-size: 0.95rem;
+       font-weight: bold;
+       text-align: center;
+       transition: opacity 0.3s ease;
+     }
+     
+     .form-message.success {
+       color: limegreen;
+     }
+     
+     .form-message.error {
+       color: crimson;
+     }
+     

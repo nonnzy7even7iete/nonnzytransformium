@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nonnzy - Landing Page</title>
+
+  <!-- Icônes Font Awesome -->
+  <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="css/nonnzyBases.css" />
+  <link rel="stylesheet" href="css/nonnzyDarklight.css" />
+  <link rel="stylesheet" href="css/nonnzyResponsive.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar glass">
+
+    <!-- MENU DESKTOP -->
+    <ul class="menu-desktop">
+      <li><a href="#"><i class="fa-solid fa-brain"></i> Nonnzy</a></li>
+      <li><a href="#"><i class="fa-solid fa-gear"></i> Transformium</a></li>
+      <li><a href="#"><i class="fa-solid fa-eye"></i> Vision</a></li>
+    </ul>
+
+    <!-- MENU MOBILE (masqué de base, déclenché par JS avec burger) -->
+    <ul class="menu-mobile" id="menu-mobile" hidden>
+      <li><a href="#"><i class="fa-solid fa-brain"></i> Nonnzy</a></li>
+      <li><a href="#"><i class="fa-solid fa-gear"></i> Transformium</a></li>
+      <li><a href="#"><i class="fa-solid fa-eye"></i> Vision</a></li>
+      <li><a href="#"><i class="fa-solid fa-info-circle"></i> À propos</a></li>
+      <li>
+        <button id="toggle-dark" class="btn-neuro" title="Changer le thème">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+      </li>
+    </ul>
+
+    <!-- Boutons communs -->
+    <div class="nav-buttons">
+      <button id="btn-register" class="btn-neuro">
+        <i class="fa-solid fa-user-plus"></i> Inscription
+      </button>
+      <button id="btn-login" class="btn-neuro">
+        <i class="fa-solid fa-right-to-bracket"></i> Connexion
+      </button>
+      <button id="toggle-dark" class="btn-neuro" title="Changer le thème">
+        <i class="fa-solid fa-sun"></i>
+      </button>
+    </div>
+
+    <!-- Icône menu burger -->
+    <div class="menu-toggle-container">
+      <i id="burger" class="fa-solid fa-bars menu-toggle"></i>
+    </div>
+
+  </nav>
+
+  <!-- Formulaires Popups -->
+  <div id="popup-register" class="popup" hidden>
+    <form class="form-box">
+      <h2>Créer un compte</h2>
+      <input type="text" name="username" placeholder="Nom d'utilisateur" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Mot de passe" required />
+      <button type="submit">S'inscrire</button>
+      <p class="form-message" id="register-message"></p>
+    </form>
+  </div>
+
+  <div id="popup-login" class="popup" hidden>
+    <form class="form-box">
+      <h2>Se connecter</h2>
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Mot de passe" required />
+      <button type="submit">Connexion</button>
+      <p class="form-message" id="login-message"></p>
+    </form>
+  </div>
+
+  <!-- JS -->
+  <script defer src="js/nonnzyDarklight.js"></script>
+  <script defer src="js/nonnzyPopups.js"></script>
+  <script defer src="js/nonnzyConnexion.js"></script>
+  <script defer src="js/nonnzyInscription.js"></script> <!-- ✅ ici -->
+  <script defer src="js/bergerMenu.js"></script> <!-- New script added -->
+</body>
+
+</html>

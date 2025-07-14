@@ -1,0 +1,28 @@
+# Node modules : dossiers lourds et générés automatiquement, à ne pas versionner
+node_modules/
+
+# Fichiers de log générés par Node.js ou d'autres outils
+*.log
+
+# Dossier contenant les fichiers uploadés par l'utilisateur (images, etc.)
+uploads/
+
+# Fichier d'environnement contenant les variables sensibles (MONGO_URI, mots de passe, etc.)
+.env
+
+# Dossiers de build ou compilation (si tu utilises un bundler comme Webpack ou autre)
+dist/
+build/
+
+# Cache divers
+.cache/
+.tmp/
+
+# MacOS (fichiers système)
+.DS_Store
+
+# Windows (fichiers système)
+Thumbs.db
+
+# Autres fichiers système ou temporaires
+*.swp
