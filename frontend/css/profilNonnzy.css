@@ -14,15 +14,48 @@ body {
 .header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 1rem 2rem;
-  background: rgba(30, 30, 30, 0.75);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  width: 90vw;
+  margin: 1rem auto;
   position: relative;
   z-index: 10;
+
+
+  /* Glassmorphisme */
+  background: rgba(255, 255, 255, 0.06);
+  /* Plus léger et futuriste */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+
+  /* Bordures subtiles */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 7rem;
+
+  /* Ombre légère futuriste */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35),
+         inset 0 1px 1px rgba(255, 255, 255, 0.2);
+
+  /* Animation légère */
+  transition: all 0.3s ease-in-out;
 }
 
-/* 👤 Image de profil */
+.header:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45),
+         inset 0 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+.burger {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 👤 Image de profil - AMÉLIORATIONS pour synchronisation */
 .profile-image {
   width: 48px;
   height: 48px;
@@ -30,17 +63,54 @@ body {
   overflow: hidden;
   border: 2px solid #333;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
 
 .profile-image:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(110, 231, 183, 0.3);
 }
 
 .profile-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* 🔄 Optimisations pour navigation navigateur */
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* 🔄 Animation lors de la mise à jour d'avatar */
+.profile-image img.updating {
+  opacity: 0.6;
+  transform: scale(0.9);
+}
+
+/* ✨ Indicateur de chargement pour avatar */
+.profile-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(110, 231, 183, 0.1) 50%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  animation: shimmer 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.profile-image.loading::after {
+  opacity: 1;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
 }
 
 /* 📦 Box profil avec effet glass/class morphique */
@@ -60,7 +130,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.8rem;
   animation: fadeIn 0.3s ease forwards;
   z-index: 50;
@@ -78,7 +148,14 @@ body {
 #username-display {
   font-weight: bold;
   color: #e2e8f0;
+  /* 🔄 Animation pour mise à jour du nom */
+  transition: color 0.3s ease;
 }
+
+#username-display.updating {
+  color: #6ee7b7;
+}
+
 
 /* 🎛️ Boutons dans la box profil */
 .profile-box button {
@@ -97,6 +174,34 @@ body {
   background: #272727;
   color: #6ee7b7;
   border-color: #6ee7b7;
+}
+
+/* 🎯 Bouton spécifique "Voir / Modifier le profil" */
+#view-profile-btn {
+  background: linear-gradient(135deg, #1f1f1f 0%, #2a2a2a 100%);
+  border: 1px solid #444;
+}
+
+#view-profile-btn:hover {
+  background: linear-gradient(135deg, #6ee7b7 0%, #10b981 100%);
+  color: #000;
+  border-color: #6ee7b7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(110, 231, 183, 0.3);
+}
+
+/* 🚪 Bouton déconnexion avec style d'alerte */
+#logout-btn {
+  background: linear-gradient(135deg, #1f1f1f 0%, #2a1f1f 100%);
+  border: 1px solid #444;
+}
+
+#logout-btn:hover {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #fff;
+  border-color: #ef4444;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
 /* 👤 Main section */
@@ -127,7 +232,7 @@ footer {
   border-top: 1px solid #333;
 }
 
-/* 🌟 Animation d’apparition */
+/* 🌟 Animation d'apparition */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -136,5 +241,49 @@ footer {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive amélioré */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.8rem 1rem;
+  }
+  
+  .profile-image {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .profile-box {
+    right: 10px;
+    width: 200px;
+    top: 60px;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  main h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-image {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .profile-box {
+    right: 5px;
+    width: 180px;
+    padding: 0.8rem;
+  }
+  
+  .profile-box button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
   }
 }

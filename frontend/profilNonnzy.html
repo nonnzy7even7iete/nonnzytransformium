@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Nonnzy</title>
   <link rel="stylesheet" href="css/profilNonnzy.css" />
+  <link rel="stylesheet" href="css/sidebar.css">
   <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
 </head>
 
@@ -13,8 +14,13 @@
 
   <!-- ✅ Header avec image de profil -->
   <header class="header">
+    <!-- Icône Font Awesome burger (bars) -->
+    <button class="burger" id="burger">
+      <i class="fas fa-bars"></i>
+    </button>
+
     <div class="profile-image" id="profileImage">
-      <img src="images/defaultavatar.jpg" alt="Photo de profil" />
+      <img src="./images/defaultavatar.jpg" alt="Photo de profil" class="user-img" id="profile-img" />
     </div>
 
     <!-- ✅ Boîte pop-up cachée au début -->
@@ -28,6 +34,8 @@
 
   </header>
 
+  <div id="sidebar-container"></div>
+
   <!-- ✅ Main Section -->
   <main>
     <h1>Bienvenue sur ta page de profil</h1>
@@ -38,7 +46,8 @@
   <footer>
     <p>Nonnzy Portfolio © 2025</p>
   </footer>
-  <script src="js/profilNonnzy.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/userProfil.js"></script>
 </body>
 
 </html>

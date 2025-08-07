@@ -2,19 +2,43 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Utilisateur</title>
   <link rel="stylesheet" href="./css/userProfil.css" />
+  <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
 </head>
 <body>
+  <!-- ✅ Header avec image de profil -->
+  <header class="header">
+
+    
+    <div class="profile-image" id="profileImage">
+      <img src="./images/defaultavatar.jpg" alt="Photo de profil" class="user-img" id="profile-img" />
+    </div>
+
+    <!-- ✅ Boîte pop-up cachée -->
+    <div class="profile-box hidden">
+      <i class="fas fa-user"></i>
+      <span id="username-display">Chargement...</span>
+      <button id="view-profile-btn">Voir / Modifier le profil</button>
+      <button id="logout-btn">Déconnexion</button>
+    </div>
+  </header>
 
   <div class="user-profil-container">
     <!-- 📸 Image de profil -->
     <div class="profil-left">
-      <img src="./assets/default-profile.jpg" alt="Photo de profil" class="user-img" id="profile-img"/>
+      <img src="./images/defaultavatar.jpg" alt="Photo de profil" class="user-img" id="profile-img" />
       <button id="show-full-img"><i class="fas fa-eye"></i> Voir la photo</button>
-      <input type="file" id="upload-photo" accept="image/*"/>
+
+      <!-- 👇 Cacher le vrai input -->
+      <input type="file" id="upload-photo" name="avatar" accept="image/*" />
+
+      <!-- 👇 Label stylisé comme un bouton -->
+      <label for="upload-photo" class="glass-file-btn">
+        <i class="fas fa-upload"></i> Importer une image
+      </label>
     </div>
 
     <!-- ✏️ Infos utilisateur -->
@@ -22,20 +46,21 @@
       <div class="username-box">
         <i class="fas fa-user"></i>
         <input type="text" id="username" placeholder="Votre pseudo..." />
-        <button id="edit-username"><i class="fas fa-edit"></i> Modifier le pseudo</button>
       </div>
 
+      <button id="update-profile">Mettre à jour mon profil</button>
       <button id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Se déconnecter</button>
     </div>
   </div>
 
   <!-- 🖼️ Vue image en plein écran -->
   <div class="image-popup hidden" id="image-popup">
-    <img id="full-image" src="./assets/default-profile.jpg" alt="Profil complet" />
-    <button id="vc -popup"><i class="fas fa-times-circle"></i></button>
+    <img id="full-image" src="./images/defaultavatar.jpg" alt="Profil complet" />
+    <button id="close-popup"><i class="fas fa-times-circle"></i></button>
   </div>
 
+  <!-- 📜 Scripts -->
   <script src="./js/userProfil.js"></script>
+  <script src="js/profilPopUp.js"></script>
 </body>
 </html>
- 

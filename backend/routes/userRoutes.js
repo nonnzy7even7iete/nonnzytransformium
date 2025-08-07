@@ -30,3 +30,4 @@ router.post('/update', authMiddleware, upload.single('avatar'), updateUserProfil
 
 // 📤 Exportation du routeur
 module.exports = router;
+
